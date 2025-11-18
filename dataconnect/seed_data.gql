@@ -1,0 +1,54 @@
+mutation CreateDemoData @transaction @auth(level: NO_ACCESS) {
+  user_insertMany(data: [
+    {
+      id: "550e8400-e29b-41d4-a716-446655440000",
+      email: "demouser1@example.com",
+      hashedPassword: "password123",
+      createdAt: "2024-04-02T00:00:00Z",
+      displayName: "Demo User 1"
+    },
+    {
+      id: "550e8400-e29b-41d4-a716-446655440001",
+      email: "demouser2@example.com",
+      hashedPassword: "password456",
+      createdAt: "2024-04-02T00:00:00Z",
+      displayName: "Demo User 2"
+    }
+  ])
+  session_insertMany(data: [
+    {
+      id: "650e8400-e29b-41d4-a716-446655440000",
+      userId: "550e8400-e29b-41d4-a716-446655440000",
+      createdAt: "2024-04-02T00:00:00Z",
+      expiresAt: "2024-04-03T00:00:00Z",
+      token: "sessiontoken1",
+      deviceInfo: "Browser",
+      ipAddress: "127.0.0.1"
+    },
+    {
+      id: "650e8400-e29b-41d4-a716-446655440001",
+      userId: "550e8400-e29b-41d4-a716-446655440001",
+      createdAt: "2024-04-02T00:00:00Z",
+      expiresAt: "2024-04-03T00:00:00Z",
+      token: "sessiontoken2",
+      deviceInfo: "Mobile",
+      ipAddress: "192.168.1.1"
+    }
+  ])
+  passwordResetToken_insertMany(data: [
+    {
+      id: "750e8400-e29b-41d4-a716-446655440000",
+      userId: "550e8400-e29b-41d4-a716-446655440000",
+      createdAt: "2024-04-02T00:00:00Z",
+      expiresAt: "2024-04-03T00:00:00Z",
+      token: "resettoken1"
+    },
+    {
+      id: "750e8400-e29b-41d4-a716-446655440001",
+      userId: "550e8400-e29b-41d4-a716-446655440001",
+      createdAt: "2024-04-02T00:00:00Z",
+      expiresAt: "2024-04-03T00:00:00Z",
+      token: "resettoken2"
+    }
+  ])
+}

@@ -1,0 +1,24 @@
+type User @table {
+  email: String!
+  hashedPassword: String!
+  createdAt: Timestamp!
+  displayName: String
+  lastLoginAt: Timestamp
+  photoUrl: String
+}
+
+type Session @table {
+  user: User!
+  token: String!
+  expiresAt: Timestamp!
+  createdAt: Timestamp!
+  ipAddress: String
+  deviceInfo: String
+}
+
+type PasswordResetToken @table {
+  user: User!
+  token: String!
+  expiresAt: Timestamp!
+  createdAt: Timestamp!
+}
